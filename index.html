@@ -2,432 +2,332 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pradeep Kumar U</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pradeep Kumar</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Add this in the <head> of your HTML -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <div class="container fade-in">
+    <div class="container fade-slide">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* Typing cursor */
+    .typing::after {
+      content: '|';
+      animation: blink 0.7s infinite;
     }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: #f8fbff;
-      color: #222;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    canvas#bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-
-    .nav-buttons {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #ffffffee;
-      display: flex;
-      justify-content: flex-end;
-      padding: 1rem 2rem;
-      gap: 1rem;
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #ddd;
-    }
-
-    .nav-buttons a {
-      color: #007acc;
-      font-weight: 500;
-      text-decoration: none;
-      border: 1px solid #007acc;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: 0.3s ease;
-    }
-
-    .nav-buttons a:hover {
-      background-color: #007acc;
-      color: white;
-      box-shadow: 0 0 8px #007acc;
-    }
-
-    .hero {
-      max-width: 1000px;
-      margin: 3rem auto 2rem;
-      text-align: center;
-    }
-
-    .profile-pic {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #007acc;
-      box-shadow: 0 0 10px rgba(0, 122, 204, 0.3);
-      margin-bottom: 1rem;
-    }
-
-    .hero h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      color: #007acc;
-      margin-bottom: 0.3rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #444;
-    }
-
-    .resume-button {
-      margin-top: 1.5rem;
-    }
-
-    .resume-button a {
-      padding: 0.8rem 1.5rem;
-      background: #007acc;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: 500;
-      box-shadow: 0 0 8px #007acc88;
-      transition: 0.3s;
-    }
-
-    .resume-button a:hover {
-      background: #005f99;
-      box-shadow: 0 0 12px #005f99;
-    }
-
-    section {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: #fff;
-      border-left: 4px solid #007acc;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 122, 204, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    section:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 20px rgba(0, 122, 204, 0.3);
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      color: #007acc;
-      margin-bottom: 1rem;
-    }
-
-    p, li {
-      font-size: 1.05rem;
-      color: #444;
-      line-height: 1.6;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    .typewriter {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.8rem;
-      color: #007acc;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 3px solid #007acc;
-      width: 0;
-      animation: typing 3s steps(30, end) forwards, blink 0.7s step-end infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
     @keyframes blink {
-      50% { border-color: transparent }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 40px;
-      right: 30px;
-      z-index: 99;
-      font-size: 28px;
-      color: #00eaff; /* JARVIS blue */
-      background: none;
-      border: none;
-      cursor: pointer;
-      outline: none;
+
+    /* Responsive nav */
+    .menu-toggle {
       display: none;
-      transition: transform 0.3s, color 0.3s;
+      font-size: 24px;
+      cursor: pointer;
     }
-    
-    #scrollTopBtn:hover {
-      transform: translateY(-5px);
-      color: #ffffff;
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
     }
-    
+
+    /* Scroll animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-in-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
 
-<canvas id="bg"></canvas>
+  <header>
+    <div class="logo">Pradeep<span> Kumar U</span></div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experiences">Experience</a></li>
+      <li><a href="#portfolio">Project</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="menu-toggle">&#9776;</div>
+  </header>
 
-<!-- Sticky Nav -->
-<nav class="nav-buttons">
-  <a href="#about">About</a>
-  <a href="#certifications">Certifications</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-</nav>
+<section id="hero">
+  <div class="hero-text fade-in">
+    <h1>Hi, I'm <span>Pradeep Kumar</span></h1>
+    <h3 class="typing"></h3>
 
-<!-- Hero -->
-<div class="hero" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-top: 80px; padding: 2rem;">
-  <div class="hero-text" style="flex: 1; min-width: 300px; text-align: left;">
-    <h1 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: #007acc;">Pradeep Kumar U</h1>
-    <p class="typewriter">Cybersecurity Specialist | CEH Certified</p>
-    
     <div class="resume-button" style="margin-top: 1.5rem;">
-      <a href="Images\Pradeep Resume.pdf" download>Download Resume</a>
+      <a href="Images/Pradeep_Resume.pdf" download>Download Resume</a>
     </div>
   </div>
 
-  <div class="profile-box" style="
-    border: 3px solid #007acc;
-    padding: 0.5rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,122,204,0.1);
-    margin-left: 2rem;
-  ">
-   
-  </div>
-</div>
-
-<!-- Sections -->
-<section id="about">
-  <h2>About Me</h2>
-  <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
-    
-    <!-- Profile Image -->
-    <div style="flex: 0 0 180px;">
-      <img src="Images\profile.png" alt="Pradeep Kumar" style="
-        width: 180px;
-        height: 180px;
-        object-fit: cover;
-        border-radius: 12px;
-        border: 3px solid #007acc;
-        box-shadow: 0 0 15px rgba(0, 122, 204, 0.4);
-      ">
-    </div>
-    
-    <!-- About Text -->
-    <div style="flex: 1; min-width: 250px;">
-      <p>
-        I’m Pradeep Kumar U, a passionate cybersecurity professional with expertise in threat analysis, incident response, and security monitoring.
-        I hold CEH and Google Cybersecurity certifications, and I’m skilled in tools like Splunk, Wazuh, and Qualys VMDR for vulnerability management.
-        I’m focused on risk mitigation, compliance, endpoint protection, cloud security, and building resilient cybersecurity frameworks.
-        I aim to help organizations stay secure in an evolving threat landscape.
-      </p>
-    </div>
-
+  <div class="hero-image fade-in">
+    <img src="Images/profile.png" alt="Portrait" />
   </div>
 </section>
-<!-- Education Box -->
-<!-- Education Section in Box -->
-<section id="experience" style="
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fff;
-  border-left: 4px solid #007acc;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 122, 204, 0.1);
-">
-  <h2 style="font-size: 1.8rem; color: #007acc; margin-bottom: 1rem;">Education</h2>
-  <h3 style="font-size: 1.3rem; color: #333;">Karunya Institute of Technology and Sciences</h3>
-
-  <p>Electronics and Computer Engineering (AI & DS)</p>
-  <p style="font-size: 1rem; color: #555; margin-bottom: 1rem;"><em>CGPA : 8.22</em></p>
-  <p style="font-size: 1rem; color: #555; margin-bottom: 1rem;"><em>Sep 2021 – May 2025</em></p>
-  <!--<ul style="list-style-type: disc; padding-left: 1.5rem; color: #444; line-height: 1.6;">
-    <li></li>
-  </ul>-->
-</section>
 
 
-<section id="experience" style="
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fff;
-  border-left: 4px solid #007acc;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 122, 204, 0.1);
-">
-  <h2 style="font-size: 1.8rem; color: #007acc; margin-bottom: 1rem;">Experience</h2>
-  <h3 style="font-size: 1.3rem; color: #333;">Cybersecurity Intern – Shop Online New York</h3>
-  <p style="font-size: 1rem; color: #555; margin-bottom: 1rem;"><em>Jan 2025 – Apr 2025</em></p>
-  <ul style="list-style-type: disc; padding-left: 1.5rem; color: #444; line-height: 1.6;">
-    <li>Monitored network traffic and analyzed logs using SIEM tools like Splunk and ELK.</li>
-    <li>Conducted vulnerability scans with Qualys VMDR and recommended remediation actions.</li>
-    <li>Assisted in incident response and malware investigation for internal security alerts.</li>
-    <li>Collaborated on secure AWS configurations and implemented access control policies.</li>
-    <li>Prepared weekly reports summarizing threats, vulnerabilities, and mitigation efforts.</li>
-  </ul>
-</section>
-
-
-<section id="certifications">
-  <h2>Certifications</h2>
-  <ul>
-    <li>Certified Ethical Hacker (CEH)</li>
-    <li>Google Cybersecurity Certification</li>
-    <li>Qualys VMDR</li>
-    <li>Google IT Certification</li>
-    <li>Cisco Cybersecurity Essentials</li>
-    <li>Offensive Penetration Testing</li>
-    <li>Oracle Cloud Infrastructure 2023 Certified Foundations Associate</li>
-  </ul>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-  <ul>  
-    <li>StealthESP Injector – Developed a HID injection tool with real-time payload modification and remote control.</li>
-    <li>AWS VPC Setup – Designed and deployed a secure Virtual Private Cloud (VPC) in AWS.</li>
-    <li>Microsoft Azure Backup–  Configured automated Azure Backup for data protection.</li>
-    <li>AWS S3 Basics  – Set up and managed S3 buckets with access control.</li>
-    <li>Azure VM & Web Server   – Deployed a VM in Azure and configured a web server.</li>
-  </ul>
-</section>
-
-<section id="skills">
-  <h2>Skills</h2>
-  <ul>
-  <li><b>Network Security:</b> Intrusion detection, VPN configuration, access control</li>
-  <li><b>SIEM & Security Tools:</b>Microsoft Sentinel, Splunk, CrowdStrike, Snort, Elastic Security, OpenVAS</li>
-      <li><b>Cloud Security:</b>
- Azure & Google Cloud Security, Microsoft Defender for Cloud</li>
-      <li><b>Endpoint Security:</b> Vulnerability assessment, log analysis, threat detection</li>
-      <li><b>Compliance & Best Practices: </b>
-NIST, ISO 27001, GDPR, Azure & Google Cloud Security</li>
-      <li><b>Programming & Scripting:</b>
- Python, Bash, PowerShell, KQL queries</li>
-      <li><b>Log Analysis & Threat Hunting:</b> SIEM dashboards, incident investigation</li>
-      <li><b>Ticketing & Incident Management:</b> JIRA</li>
-  </ul>
-</section>
-
-<section id="publications">
-  <h2>Publications</h2>
-  <ul>
-    <strong>“Performance Analysis of Different Hardware Platforms in Wireless Sensor Networks”</strong>
-  </ul>
-</section>
-
-
-
-   <!-- Contact Section -->
- 
-  <!-- Contact Section -->
-  <section id="contact" class="px-6 py-12">
-    <h2 class="text-3xl font-bold text-white mb-6 border-b-4 border-[#FF6B6B] inline-block">Contact</h2>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="space-y-6 text-lg text-white">
-        <p><i class="fas fa-user text-[#FF6B6B] mr-2"></i> <strong>Pradeep KUmar U</strong></p>
-        <p><i class="fas fa-tag text-[#FF6B6B] mr-2"></i>Cyber Security Specialist</p>
-        <p><i class="fas fa-envelope text-[#FF6B6B] mr-2"></i> <a href="mailto:pradeepkumaru.cyber@gmail.com" class="text-white underline">pradeepkumaru.cyber@gmail.com</a></p>
-        <p><i class="fas fa-phone-alt text-[#FF6B6B] mr-2"></i> +91 90258 58843</p>
-        <p><i class="fas fa-map-marker-alt text-[#FF6B6B] mr-2"></i>Tiruchirappalli, Tamilnadu, India - 620 008</p>
+  <!----about---->
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+          <img src="Images\profile.jpg" alt="Profile Image">
+        </div>
+        <div class="about-col-2">
+          <h2 class="sub-title">About Me</h2>
+          <p style="text-align: justify;">       
+I’m Pradeep Kumar U, a passionate cybersecurity professional with expertise in threat analysis, 
+incident response, and security monitoring. I hold <strong>CEH and Google Cybersecurity certifications,</strong> and 
+I’m skilled in tools like Splunk, Elastic, and Qualys VMDR for vulnerability management. I’m focused on risk mitigation, 
+compliance, endpoint protection, cloud security, and building resilient cybersecurity frameworks. I aim to help organizations 
+stay secure in an evolving threat landscape.
+          </p>
+        </div>
       </div>
-      <div>
-        <!-- You can add a map or form here if you want -->
-      </div>
-    </div>
-    <br>
-    <div class="flex flex-wrap justify-start gap-6 mt-12">
-      <a href="https://github.com/Pradeepkumaru-cyber/portfolio" class="bg-[#FF6B6B] text-white w-14 h-14 flex items-center justify-center text-4x4 square-icon"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/pradeep-kumar-u-32b669224/" class="bg-[#FF6B6B] text-white w-14 h-14 flex items-center justify-center text-4x4 square-icon"><i class="fab fa-linkedin-in"></i></a>
     </div>
   </section>
 
 
-<footer>
-  &copy; 2025 Pradeep Kumar U. Powered by J.A.R.V.I.S. vibes ✨
-</footer>
+  <!-- Education -->
+  <section id="edu">
+    <div class="container fade-slide">
+      <h2 class="sub-title">Education</h2>
+      <div class="education-box">
+        <h3>Karunya Institute of Technology and Sciences</h3>
+        <p><strong>Program:</strong> B.Tech in Electronics and Computer Engineering (AI & DS)</p>
+        <p><strong>CGPA:</strong> 8.22</p>
+        <p><strong>Duration:</strong> Sep 2021 – May 2025</p>
+      </div>
+    </div>
+  </section>
 
-<!-- Particle Background -->
-<script>
-const canvas = document.getElementById('bg');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+<!-- Experience -->
+<section id="experiences">
+  <div class="container fade-slide">
+    <h2 class="sub-title">Experience</h2>
+    <div class="experience-box">
+      <h3>Cybersecurity Intern – Shop Online New York</h3>
+      <p class="exp-date">Jan 2025 – Apr 2025</p>
+      <ul>
+        <li>Monitored network traffic and analyzed logs using SIEM tools like Splunk and ELK.</li>
+        <li>Conducted vulnerability scans with Qualys VMDR and recommended remediation actions.</li>
+        <li>Assisted in incident response and malware investigation for internal security alerts.</li>
+        <li>Collaborated on secure AWS configurations and implemented access control policies.</li>
+        <li>Prepared weekly reports summarizing threats, vulnerabilities, and mitigation efforts.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-let particles = [];
-for (let i = 0; i < 100; i++) {
-  particles.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 2 + 1,
-    dx: (Math.random() - 0.5) * 0.5,
-    dy: (Math.random() - 0.5) * 0.5
-  });
-}
 
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let p of particles) {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = "#007acc";
-    ctx.fill();
-    p.x += p.dx;
-    p.y += p.dy;
-    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-  }
-  requestAnimationFrame(draw);
-}
-draw();
+<!-- Skills-->
+<section id="skills">
+  <div class="container fade-slide">
+    <h2 class="sub-title">Skills</h2>
+    <div class="experience-box">
+      <ul class="white-text">
+        <li><span class="orange-bold">SIEM & Security: </span> Splunk, Elastic, Snort, Wireshark</li>
+        <li><span class="orange-bold">Cloud Platforms:</span> AWS, Azure, GCP</li>
+        <li><span class="orange-bold">Programming/Scripting:</span> Python, Java, HTML, Powershell, Bash, JavaScript</li>
+        <li><span class="orange-bold">Security Domains:</span> Threat Hunting, Red Teaming, Penetration Testing, Vulnerability Management</li>
+        <li><span class="orange-bold">Compliance & Best Practices: </span>NIST, ISO 27001, GDPR, Azure & Google Cloud Security</li>
+        <li><span class="orange-bold">Tools:</span> Nmap, Metasploit, Wireshark, Burp Suite</li>
+      </ul>   
+    </div>
+  </div>
+</section>
 
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
-</script>
+<!-- Certifications-->
+<section id="skills">
+  <div class="container fade-slide">
+    <h2 class="sub-title">Certifications</h2>
+    <div class="experience-box">
+      <ul class="white-text">
+        <li><span class="orange-bold">Certified Ethical Hacker (CEH)</span></li>
+        <li><span class="orange-bold">Google Cybersecurity Certificate</span></li>
+        <li><span class="orange-bold">Offensive Penetration Testing</span></li>
+        <li><span class="orange-bold">Cisco Cybersecurity Essentials</span></li>
+        <li><span class="orange-bold">Qualys VMDR</span></li>
+        <li><span class="orange-bold">Google IT Certificate</span></li>
+      </ul>   
+    </div>
+  </div>
+</section>
+
+<!--Portfolio-->
+ <section id="portfolio">
+    <div class = "container">
+      <h2 Class="sub-title">My Work</h2>
+      <div class="work-list">
+          <div class="work">
+            <img src="Images/2.jpg">
+            <div class="layer">
+              <h3> StealthESP Injector </h3>
+              <p>The StealthESP Injector is a compact hardware
+                 device built using the ESP-12S Wi-Fi module and 
+                 ATmega32U4 microcontroller to perform HID (Human Interface Device) 
+                 injection attacks for ethical hacking purposes. It allows remote payload 
+                 delivery and real-time script execution, making it a powerful tool for security 
+                 testing and demonstrating potential USB-based vulnerabilities.</p>
+            </div>
+          </div>
+           <div class="work">
+            <img src="Images/3.jpg">
+              <div class="layer">
+              <h3>Reverse Web Shell Generator</h3>
+              <p>This project is a web-based tool designed to generate reverse shell payloads
+                 for multiple platforms (Windows, Linux, macOS). It enables users to host payloads, 
+                 automatically set up listeners, and execute shell connections over HTTP, helping ethical hackers
+                  simulate real-world attacks and test network defenses efficiently.</p>
+            </div>
+          </div> 
+          <div class="work">
+            <img src="Images/4.jpg">
+              <div class="layer">
+              <h3>AWS VPC Setup</h3>
+              <p>This project involved designing and deploying a secure and scalable Virtual Private Cloud (VPC) 
+                in Amazon Web Services (AWS). The setup included creating custom subnets, route tables, internet gateways,
+                 and NAT gateways to enable both public and private access. Security groups and network ACLs were configured 
+                 to control inbound and outbound traffic, ensuring a robust network architecture for hosting cloud-based 
+                 applications securely.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+ </section>
+
+
 <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">
   ⮝⮝
 </button>
-<script>
-  // Toggle scroll button visibility
-  window.onscroll = function () {
-    const btn = document.getElementById("scrollTopBtn");
-    btn.style.display = (window.scrollY > 100) ? "block" : "none";
-  };
 
-  // Scroll to top smoothly
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
+<!-- Contact Details -->
 
+
+<section id="contact">
+  <div class="container">
+    <div class=""row>
+      <div class="contact-left">
+          <h2 class="sub-title">Contact Me</h2>
+         <a href="mailto:pradeepkumaru.cyber@gmail.com" > <p><i class="fas fa-envelope"></i>pradeepkumaru.cyber@gmail.com</p></a>
+          <p><i class="fas fa-phone"></i>+91 90258 58843</p>
+          <p><i class="fas fa-map-marker-alt text-[#FF8000] mr-2"></i>Tiruchirappalli, Tamilnadu, India - 620 008</p>
+         <div class="social-icons">
+        <a href="https://www.linkedin.com/in/pradeep-kumar-u-32b669224/"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Pradeepkumaru-cyber/portfolio"><i class="fab fa-github-square"></i></a>
+        <a href=""><i class="fab fa-instagram"></i></a>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>© 2025 Pradeep Kumar. All rights reserved.</p>
+  </div>
+</footer>
+
+  
+  
+  <script>
+    // Mobile menu toggle
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector(".nav-links");
+      toggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+      });
+
+      // Typing effect
+      const typingSpan = document.querySelector(".typing");
+      const words = ["CYBERSECURITY SPECIALIST", "ETHICAL HACKER","PENTESTER"];
+      let wordIndex = 0;
+      let letterIndex = 0;
+      let isDeleting = false;
+
+      function type() {
+        const word = words[wordIndex];
+
+        if (isDeleting) {
+          letterIndex--;
+        } else {
+          letterIndex++;
+        }
+
+        typingSpan.textContent = word.substring(0, letterIndex);
+
+        let typeSpeed = isDeleting ? 50 : 100;
+
+        if (!isDeleting && letterIndex === word.length + 1) {
+          typeSpeed = 2000;
+          isDeleting = true;
+        } else if (isDeleting && letterIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          typeSpeed = 500;
+        }
+
+        setTimeout(type, typeSpeed);
+      }
+
+      type();
+
+      // Scroll animation
+      const faders = document.querySelectorAll('.fade-in');
+      const appearOptions = {
+        threshold: 0.1
+      };
+      const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        });
+      }, appearOptions);
+
+      faders.forEach(fader => appearOnScroll.observe(fader));
+    });
+    const faders = document.querySelectorAll('.fade-in, .fade-slide');
+
+  </script>
+ 
+  <script>
+    // Toggle scroll button visibility
+    window.onscroll = function () {
+      const btn = document.getElementById("scrollTopBtn");
+      btn.style.display = (window.scrollY > 100) ? "block" : "none";
+    };
+  
+    // Scroll to top smoothly
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 
 </body>
 </html>
