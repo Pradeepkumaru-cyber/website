@@ -4,13 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pradeep Kumar</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Add this in the <head> of your HTML -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <div class="container fade-in">
-    <div class="container fade-slide">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     /* Typing cursor */
     .typing::after {
@@ -57,6 +51,642 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* General Styles */
+    :root {
+      --primary-color: #ff6f00; /* Vibrant Orange */
+      --light-orange: #ffa726;
+      --text-color: #fff;
+      --dim-text: #ccc;
+      --box-bg: #111;
+      --hover-glow: rgba(255, 111, 0, 0.4);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-color: #000;
+      padding: 1.5rem 2rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-color);
+    }
+
+    .logo span {
+      color: var(--primary-color);
+    }
+
+    .nav-links {
+      position: sticky;
+      display: flex;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: var(--primary-color);
+    }
+
+    .menu-toggle {
+      display: none;
+      color: var(--text-color);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+        background: #000;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        padding: 2rem;
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+    h1, h2, h3 {
+      margin-top: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    #hero {
+      height: 100vh;
+      background: #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+      flex-direction: row;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text h3 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text h1 span {
+      color: var(--primary-color);
+      animation: glowText 2s ease-in-out infinite alternate;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: var(--dim-text);
+    }
+
+    .hero-image img {
+      width: 400px;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    section {
+      padding: 2rem 1rem; /* Previously too large, e.g., 6rem */
+      margin-bottom: 1rem; /* Add some control for vertical stacking */
+    }
+    #hero,
+    #experience,
+    #education,
+    #skills,
+    #certifications {
+      padding: 2rem 1rem !important;
+    }
+    .hero,
+    .education-box,
+    .experience-box,
+    .skills-box,
+    .certifications-box {
+      margin-bottom: 1rem; /* previously unbounded */
+    }
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    section p, li {
+      font-size: 1rem;
+      color: var(--dim-text);
+    }
+
+    /*------about------*/
+    #about {
+      padding: 80px 20px;
+      color: #ababab;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .about-col-1 {
+      flex-basis: 35%;
+    }
+
+    .about-col-1 img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .about-col-2 {
+      flex-basis: 60%;
+      text-align: left;
+    }
+
+    .sub-title {
+      font-size: 60px;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    section ul {
+      padding-left: 1.2rem;
+      list-style-type: disc;
+    }
+
+    section ul li {
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+      color: var(--dim-text);
+    }
+
+    /* Education Section */
+    #education {
+      padding: 80px 20px;
+      background-color: #0a0a0a;
+    }
+
+    .education-box {
+      background: var(--box-bg);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid #333;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .education-box h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .education-box p {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+      color: var(--dim-text);
+    }
+
+    .education-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px var(--hover-glow);
+    }
+
+    /* Experience Section */
+    #experience {
+      padding: 80px 20px;
+      background-color: #0d0d0d;
+    }
+
+    .experience-box {
+      background: var(--box-bg);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid #333;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .experience-box h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-box .exp-date {
+      font-size: 0.95rem;
+      color: #aaa;
+      margin-bottom: 1rem;
+    }
+
+    .experience-box ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+
+    .experience-box ul li {
+      margin-bottom: 0.5rem;
+      color: var(--dim-text);
+      line-height: 1.6;
+    }
+
+    .experience-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px var(--hover-glow);
+    }
+
+    /* Animation */
+    @keyframes pulseColor {
+      0%   { color: var(--primary-color); }
+      50%  { color: var(--light-orange); }
+      100% { color: var(--primary-color); }
+    }
+
+    .hero-text h1 span {
+      animation: pulseColor 3s ease-in-out infinite;
+    }
+    .hero-text h1 span:hover {
+      display: inline-block;
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+
+    /* Footer */
+    footer {
+      background: #000000;
+      padding: 2rem 20px;
+      text-align: center;
+      color: var(--dim-text);
+    }
+
+    footer .social-links {
+      margin-top: 0.8rem;
+    }
+
+    footer .social-links a {
+      margin: 0 0.5rem;
+      color: var(--dim-text);
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    footer .social-links a:hover {
+      color: var(--primary-color);
+    }
+
+    .fade-in {
+      animation: fadeInUp 1.2s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 40px;
+      right: 30px;
+      z-index: 99;
+      font-size: 28px;
+      color: #ff8000; /* JARVIS blue */
+      background: none;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      display: none;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    #scrollTopBtn:hover {
+      transform: translateY(-5px);
+      color: #ffffff;
+    }
+
+    .nav-buttons {
+
+    }
+    .orange-bold {
+      color: hwb(30 0% 0%);
+      font-weight: bold;
+    }
+
+    .white-text {
+      color: white;
+      font-weight: normal;
+    }
+
+    #portfolio{
+      padding: 15px 0;
+    }     
+    .work-list{
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 40px;
+      margin-top:50px;
+    }
+    .work{
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    .work img{
+      width: 100%;
+      border-radius: 15px;
+      display: block;
+      transition: transform 0.5s;
+    }
+    .layer{
+      width: 100%;
+      height: 0;
+      background: linear-gradient(rgba(0,0,0,0.6),#ff8000);
+      border-radius: 10px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 40px;
+      text-align: center;
+      transition: height 0.5s;
+    }
+    .layer h3{
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .work:hover img{
+      transform: scale(1.1);
+    }
+    .work:hover .layer{
+      height: 100%;
+    }
+    .contact-left{
+      flex-basis: 35%;
+    }
+    .contact-left p
+    {
+      margin-top: 30px;
+    }
+    .contact-left p i{
+      color:#ff8000;
+      margin-right: 15px;
+      font-size: 25px;
+    }
+
+    .social-icons{
+      margin-top: 30px;
+    }
+    .social-icons a{
+      text-decoration: none;
+      font-size: 30px;
+      margin-right: 15px;
+      color: #ababab;
+      display: inline-block;
+      transition: transform 0.5s;
+    }
+    .social-icons a:hover{
+      color: #ff8000;
+      transform: translateY(-5px);
+    }
+    .resume-button a {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      background-color: var(--primary-color);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .resume-button a:hover {
+      background-color: var(--light-orange);
+    }
+
+    /* Medium Publications Section */
+    #publications {
+      padding: 80px 20px;
+      background-color: #0a0a0a;
+    }
+
+    .publications-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .publication {
+      background: var(--box-bg);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid #333;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .publication:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px var(--hover-glow);
+    }
+
+    .publication h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .publication p {
+      margin-bottom: 1.5rem;
+      color: var(--dim-text);
+    }
+
+    .publication a {
+      display: inline-block;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .publication a:hover {
+      color: var(--light-orange);
+    }
+
+    /* Enhanced Portfolio Section */
+    .portfolio-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #333;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--dim-text);
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .tab-btn.active {
+      color: var(--primary-color);
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+
+    .tab-btn:hover {
+      color: var(--primary-color);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Enhanced work grid for 3x2 layout */
+    .work-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    @media (min-width: 1200px) {
+      .work-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .work {
+      height: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .work img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .layer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: linear-gradient(rgba(0,0,0,0.7), #ff8000);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      text-align: center;
+      transition: height 0.5s;
+      overflow: hidden;
+    }
+
+    .layer h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .layer p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .work:hover .layer {
+      height: 100%;
+    }
+
+    .work:hover img {
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
@@ -67,7 +697,8 @@
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#experiences">Experience</a></li>
-      <li><a href="#portfolio">Project</a></li>
+      <li><a href="#portfolio">Projects</a></li>
+      <li><a href="#publications">Publications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="menu-toggle">&#9776;</div>
@@ -99,9 +730,9 @@
         <div class="about-col-2">
           <h2 class="sub-title">About Me</h2>
           <p style="text-align: justify;">       
-I’m Pradeep Kumar U, a passionate cybersecurity professional with expertise in threat analysis, 
+I'm Pradeep Kumar U, a passionate cybersecurity professional with expertise in threat analysis, 
 incident response, and security monitoring. I hold <strong>CEH and Google Cybersecurity certifications,</strong> and 
-I’m skilled in tools like Splunk, Elastic, and Qualys VMDR for vulnerability management. I’m focused on risk mitigation, 
+I'm skilled in tools like Splunk, Elastic, and Qualys VMDR for vulnerability management. I'm focused on risk mitigation, 
 compliance, endpoint protection, cloud security, and building resilient cybersecurity frameworks. I aim to help organizations 
 stay secure in an evolving threat landscape.
           </p>
@@ -177,71 +808,93 @@ stay secure in an evolving threat landscape.
   </div>
 </section>
 
-<!--Portfolio-->
- <section id="portfolio">
-    <div class = "container">
-      <h2 Class="sub-title">My Work</h2>
+<!-- Portfolio -->
+<section id="portfolio">
+  <div class="container">
+    <h2 class="sub-title">My Work</h2>
+    
+    <div class="portfolio-tabs">
+      <button class="tab-btn active" data-tab="projects">Projects</button>
+      <button class="tab-btn" data-tab="publications">Publications</button>
+    </div>
+    
+    <div class="tab-content active" id="projects-tab">
       <div class="work-list">
-          <div class="work">
-            <img src="Images/2.jpg">
-            <div class="layer">
-              <h3> StealthESP Injector </h3>
-              <p>The StealthESP Injector is a compact hardware
-                 device built using the ESP-12S Wi-Fi module and 
-                 ATmega32U4 microcontroller to perform HID (Human Interface Device) 
-                 injection attacks for ethical hacking purposes. It allows remote payload 
-                 delivery and real-time script execution, making it a powerful tool for security 
-                 testing and demonstrating potential USB-based vulnerabilities.</p>
-            </div>
+        <div class="work">
+          <img src="Images/2.jpg" alt="StealthESP Injector">
+          <div class="layer">
+            <h3>StealthESP Injector</h3>
+            <p>The StealthESP Injector is a compact hardware device built using the ESP-12S Wi-Fi module and ATmega32U4 microcontroller to perform HID (Human Interface Device) injection attacks for ethical hacking purposes.</p>
           </div>
-           <div class="work">
-            <img src="Images/3.jpg">
-              <div class="layer">
-              <h3>Reverse Web Shell Generator</h3>
-              <p>This project is a web-based tool designed to generate reverse shell payloads
-                 for multiple platforms (Windows, Linux, macOS). It enables users to host payloads, 
-                 automatically set up listeners, and execute shell connections over HTTP, helping ethical hackers
-                  simulate real-world attacks and test network defenses efficiently.</p>
-            </div>
-          </div> 
-          <div class="work">
-            <img src="Images/4.jpg">
-              <div class="layer">
-              <h3>Ultimate Hash Cracker</h3>
-              <p>This project focuses on building an ethical security tool for fast and reliable hash recovery and verification. 
-                It supports commonly used hash algorithms such as MD5, SHA-1, and SHA-256 to help analysts evaluate password strength and file integrity.
-                The tool features smart dictionary and hybrid attack techniques to simulate realistic cybersecurity scenarios.
-                It provides a clean interface with real-time cracking status, making it accessible for SOC analysts, penetration testers, and learners. 
-                This project is intended strictly for authorized security testing and educational use.</p>
-            </div>
+        </div>
+        <div class="work">
+          <img src="Images/3.jpg" alt="Reverse Web Shell Generator">
+          <div class="layer">
+            <h3>Reverse Web Shell Generator</h3>
+            <p>This project is a web-based tool designed to generate reverse shell payloads for multiple platforms (Windows, Linux, macOS). It enables users to host payloads and automatically set up listeners.</p>
           </div>
-        <br>
-            <div class="work">
-            <img src="Images/3.jpg">
-              <div class="layer">
-              <h3>AWS VPC Setup</h3>
-              <p>This project involved designing and deploying a secure and scalable Virtual Private Cloud (VPC) 
-                in Amazon Web Services (AWS). The setup included creating custom subnets, route tables, internet gateways,
-                 and NAT gateways to enable both public and private access. Security groups and network ACLs were configured 
-                 to control inbound and outbound traffic, ensuring a robust network architecture for hosting cloud-based 
-                 applications securely.</p>
-            </div>
+        </div>
+        <div class="work">
+          <img src="Images/4.jpg" alt="Ultimate Hash Cracker">
+          <div class="layer">
+            <h3>Ultimate Hash Cracker</h3>
+            <p>This project focuses on building an ethical security tool for fast and reliable hash recovery and verification. It supports commonly used hash algorithms such as MD5, SHA-1, and SHA-256.</p>
           </div>
+        </div>
+        <div class="work">
+          <img src="Images/3.jpg" alt="AWS VPC Setup">
+          <div class="layer">
+            <h3>AWS VPC Setup</h3>
+            <p>This project involved designing and deploying a secure and scalable Virtual Private Cloud (VPC) in Amazon Web Services (AWS). The setup included creating custom subnets, route tables, and security groups.</p>
+          </div>
+        </div>
+        <div class="work">
+          <img src="Images/2.jpg" alt="Network Security Analyzer">
+          <div class="layer">
+            <h3>Network Security Analyzer</h3>
+            <p>A Python-based tool that scans networks for vulnerabilities, analyzes packet traffic, and detects potential security threats in real-time using machine learning algorithms.</p>
+          </div>
+        </div>
+        <div class="work">
+          <img src="Images/4.jpg" alt="Incident Response Framework">
+          <div class="layer">
+            <h3>Incident Response Framework</h3>
+            <p>Developed a comprehensive incident response framework with automated playbooks for common cybersecurity incidents, reducing response time by 40% in simulated environments.</p>
+          </div>
+        </div>
       </div>
     </div>
- </section>
-
+    
+    <div class="tab-content" id="publications-tab">
+      <div class="publications-list">
+        <div class="publication">
+          <h3>Understanding Modern HID Attacks</h3>
+          <p>An in-depth analysis of Human Interface Device attacks, their evolution, and effective defense strategies for modern organizations.</p>
+          <a href="#" target="_blank">Read on Medium →</a>
+        </div>
+        <div class="publication">
+          <h3>Building Secure AWS VPCs</h3>
+          <p>A comprehensive guide to designing and implementing secure Virtual Private Clouds in AWS, covering best practices and common pitfalls.</p>
+          <a href="#" target="_blank">Read on Medium →</a>
+        </div>
+        <div class="publication">
+          <h3>Ethical Hashing: Tools & Techniques</h3>
+          <p>Exploring the ethical use of hash cracking tools in security testing and how to strengthen password security based on attack methodologies.</p>
+          <a href="#" target="_blank">Read on Medium →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">
   ⮝⮝
 </button>
 
 <!-- Contact Details -->
-
-
 <section id="contact">
   <div class="container">
-    <div class=""row>
+    <div class="row">
       <div class="contact-left">
           <h2 class="sub-title">Contact Me</h2>
          <a href="mailto:pradeepkumaru.cyber@gmail.com" > <p><i class="fas fa-envelope"></i>pradeepkumaru.cyber@gmail.com</p></a>
@@ -264,8 +917,6 @@ stay secure in an evolving threat landscape.
   </div>
 </footer>
 
-  
-  
   <script>
     // Mobile menu toggle
     document.addEventListener("DOMContentLoaded", () => {
@@ -326,6 +977,24 @@ stay secure in an evolving threat landscape.
     });
     const faders = document.querySelectorAll('.fade-in, .fade-slide');
 
+    // Portfolio tab functionality
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons and contents
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+        
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        // Show corresponding content
+        const tabId = btn.getAttribute('data-tab');
+        document.getElementById(`${tabId}-tab`).classList.add('active');
+      });
+    });
   </script>
  
   <script>
@@ -343,5 +1012,3 @@ stay secure in an evolving threat landscape.
 
 </body>
 </html>
-
-
