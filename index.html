@@ -807,12 +807,128 @@
       color: var(--light-orange);
     }
 
+    /* GitHub Projects Section */
+    .github-projects-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .github-project {
+      background: var(--box-bg);
+      padding: 2rem;
+      border-radius: 15px;
+      border: 1px solid #333;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    .github-project.visible {
+      transform: translateY(0);
+      opacity: 1;
+      transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.3s ease;
+    }
+
+    .github-project::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 111, 0, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .github-project:hover::before {
+      left: 100%;
+    }
+
+    .github-project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px var(--hover-glow);
+    }
+
+    .github-project h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .github-project h3 i {
+      font-size: 1.2rem;
+    }
+
+    .github-project p {
+      margin-bottom: 1.5rem;
+      color: var(--dim-text);
+    }
+
+    .github-project .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .github-project .tech-tag {
+      background: rgba(255, 111, 0, 0.1);
+      color: var(--primary-color);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(255, 111, 0, 0.3);
+    }
+
+    .github-project .project-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .github-project a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .github-project a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    .github-project a:hover::after {
+      width: 100%;
+    }
+
+    .github-project a:hover {
+      color: var(--light-orange);
+    }
+
     /* Enhanced Portfolio Section */
     .portfolio-tabs {
       display: flex;
       justify-content: center;
       margin-bottom: 2rem;
       border-bottom: 1px solid #333;
+      flex-wrap: wrap;
     }
 
     .tab-btn {
@@ -1161,8 +1277,7 @@
       <li><a href="#hero" class="active">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#experiences">Experience</a></li>
-      <li><a href="#portfolio">Projects</a></li>
-      <li><a href="#portfolio">Publications</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="menu-toggle">&#9776;</div>
@@ -1280,9 +1395,11 @@ stay secure in an evolving threat landscape.
     
     <div class="portfolio-tabs">
       <button class="tab-btn active" data-tab="projects">Projects</button>
+      <button class="tab-btn" data-tab="github">GitHub Projects</button>
       <button class="tab-btn" data-tab="publications">Publications</button>
     </div>
     
+    <!-- Projects Tab -->
     <div class="tab-content active" id="projects-tab">
       <div class="work-list">
         <div class="work">
@@ -1330,6 +1447,109 @@ stay secure in an evolving threat landscape.
       </div>
     </div>
     
+    <!-- GitHub Projects Tab -->
+    <div class="tab-content" id="github-tab">
+      <div class="github-projects-list">
+        <div class="github-project">
+          <h3><i class="fab fa-github"></i> StealthESP-Injector</h3>
+          <p>A compact hardware device for HID injection attacks using ESP-12S Wi-Fi module and ATmega32U4 microcontroller for ethical hacking and penetration testing.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">Arduino</span>
+            <span class="tech-tag">ESP8266</span>
+            <span class="tech-tag">HID</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Pradeepkumaru-cyber/StealthESP-Injector" target="_blank">
+              <i class="fas fa-code"></i> View Code
+            </a>
+          </div>
+        </div>
+        
+        <div class="github-project">
+          <h3><i class="fab fa-github"></i> Ultimate-Hash-Cracker</h3>
+          <p>Ethical security tool for fast hash recovery and verification supporting MD5, SHA-1, SHA-256 algorithms with dictionary and brute-force attack modes.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Cryptography</span>
+            <span class="tech-tag">Security</span>
+            <span class="tech-tag">CLI Tool</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Pradeepkumaru-cyber/Ultimate-Hash-Cracker" target="_blank">
+              <i class="fas fa-code"></i> View Code
+            </a>
+          </div>
+        </div>
+        
+        <div class="github-project">
+          <h3><i class="fab fa-github"></i> Wazuh-SIEM-Lab</h3>
+          <p>Complete SIEM implementation with Wazuh for log monitoring, threat detection, file integrity monitoring, and incident response automation.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">SIEM</span>
+            <span class="tech-tag">Wazuh</span>
+            <span class="tech-tag">Linux</span>
+            <span class="tech-tag">Security</span>
+            <span class="tech-tag">Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Pradeepkumaru-cyber/Wazuh-SIEM-Lab" target="_blank">
+              <i class="fas fa-code"></i> View Code
+            </a>
+          </div>
+        </div>
+        
+        <div class="github-project">
+          <h3><i class="fab fa-github"></i> Reverse-Web-Shell-Generator</h3>
+          <p>Web-based tool for generating reverse shell payloads across multiple platforms with automated listener setup and payload hosting capabilities.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">Web Security</span>
+            <span class="tech-tag">Penetration Testing</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Pradeepkumaru-cyber/Reverse-Web-Shell-Generator" target="_blank">
+              <i class="fas fa-code"></i> View Code
+            </a>
+          </div>
+        </div>
+        
+        <div class="github-project">
+          <h3><i class="fab fa-github"></i> pfSense-Firewall-Lab</h3>
+          <p>Network security lab with pfSense firewall configuration including NAT, VLAN, IDS/IPS, VPN, and traffic filtering rules for enterprise network protection.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">pfSense</span>
+            <span class="tech-tag">Network Security</span>
+            <span class="tech-tag">Firewall</span>
+            <span class="tech-tag">VPN</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Pradeepkumaru-cyber/pfSense-Firewall-Lab" target="_blank">
+              <i class="fas fa-code"></i> View Code
+            </a>
+          </div>
+        </div>
+        
+        <div class="github-project">
+          <h3><i class="fab fa-github"></i> Cybersecurity-Portfolio</h3>
+          <p>Interactive portfolio website showcasing cybersecurity projects, skills, certifications, and professional experience with responsive design and animations.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Web Development</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Pradeepkumaru-cyber/portfolio" target="_blank">
+              <i class="fas fa-code"></i> View Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Publications Tab -->
     <div class="tab-content" id="publications-tab">
       <div class="publications-list">
         <div class="publication">
@@ -1442,7 +1662,7 @@ stay secure in an evolving threat landscape.
       faders.forEach(fader => appearOnScroll.observe(fader));
       
       // Animate portfolio items on scroll
-      const portfolioItems = document.querySelectorAll('.work, .publication');
+      const portfolioItems = document.querySelectorAll('.work, .publication, .github-project');
       const portfolioObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -1473,6 +1693,14 @@ stay secure in an evolving threat landscape.
         // Show corresponding content
         const tabId = btn.getAttribute('data-tab');
         document.getElementById(`${tabId}-tab`).classList.add('active');
+        
+        // Trigger animation for newly visible items
+        const newTabItems = document.querySelectorAll(`#${tabId}-tab .work, #${tabId}-tab .publication, #${tabId}-tab .github-project`);
+        newTabItems.forEach(item => {
+          if (item.getBoundingClientRect().top < window.innerHeight) {
+            item.classList.add('visible');
+          }
+        });
       });
     });
     
@@ -1553,6 +1781,3 @@ stay secure in an evolving threat landscape.
 
 </body>
 </html>
-
-
-
