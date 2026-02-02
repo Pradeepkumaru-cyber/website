@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pradeep Kumar - Cybersecurity Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Add Swiper CSS for slideshow -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <style>
     /* Typing cursor */
     .typing::after {
@@ -205,12 +207,6 @@
     .hero-text {
       max-width: 600px;
       z-index: 2;
-    }
-
-    .hero-text h3 {
-      font-size: 1.2rem;
-      font-weight: 400;
-      margin-bottom: 1rem;
     }
 
     .hero-text h1 {
@@ -1267,6 +1263,561 @@
       0% { transform: translateX(-100%); }
       100% { transform: translateX(100%); }
     }
+
+    /* NEW: Certificates Slideshow Section */
+/* Update these styles in the certificate section */
+
+/* NEW: Certificates Slideshow Section - ENHANCED */
+#certificates {
+  padding: 80px 20px;
+  background-color: #0a0a0a;
+}
+
+.certificates-container {
+  max-width: 1400px; /* Increased from 1200px */
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 600px; /* Increased from 500px */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(255, 111, 0, 0.3); /* Enhanced shadow */
+  border: 2px solid var(--primary-color); /* Added border */
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--box-bg);
+  padding: 3rem; /* Increased padding */
+  border-radius: 10px;
+  border: 1px solid #444;
+  backdrop-filter: blur(10px); /* Added blur effect */
+  background: rgba(17, 17, 17, 0.95); /* Slightly transparent */
+}
+
+.certificate-item {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.certificate-preview {
+  width: 100%;
+  max-width: 900px; /* Increased from 400px */
+  height: 600px; /* Increased from 300px */
+  overflow: hidden;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  
+  background: linear-gradient(145deg, #000000, #111111); /* Gradient background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.certificate-preview:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px rgba(255, 111, 0, 0.4);
+}
+
+.certificate-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  padding: 10px;
+}
+
+.certificate-preview img:hover {
+  transform: scale(1.05);
+}
+
+.pdf-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+  font-size: 10rem; /* Increased from 5rem */
+  width: 100%;
+  height: 100%;
+}
+
+.pdf-icon span {
+  font-size: 1.5rem; /* Increased from 1rem */
+  margin-top: 2rem;
+  color: var(--dim-text);
+  font-weight: 500;
+}
+
+.certificate-item h3 {
+  color: var(--primary-color);
+  font-size: 2rem; /* Increased from 1.5rem */
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.certificate-item p {
+  color: var(--dim-text);
+  margin-bottom: 1rem;
+  font-size: 1.2rem; /* Increased */
+}
+
+.certificate-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.certificate-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 111, 0, 0.15);
+  color: var(--primary-color);
+  text-decoration: none;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 111, 0, 0.3);
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.certificate-links a:hover {
+  background: rgba(255, 111, 0, 0.25);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 111, 0, 0.2);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--primary-color) !important;
+  background: rgba(0, 0, 0, 0.8);
+  width: 60px !important; /* Increased */
+  height: 60px !important; /* Increased */
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 2rem !important; /* Increased */
+}
+
+.swiper-pagination-bullet {
+  background: var(--dim-text) !important;
+  opacity: 0.5 !important;
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--primary-color) !important;
+  opacity: 1 !important;
+  transform: scale(1.2);
+}
+
+/* Add animation for certificate appearance */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.swiper-slide-active .certificate-item {
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Responsive adjustments for certificates */
+@media (max-width: 1200px) {
+  .certificate-preview {
+    max-width: 600px;
+    height: 350px;
+  }
+  
+  .swiper {
+    height: 550px;
+  }
+}
+
+@media (max-width: 768px) {
+  .certificate-preview {
+    max-width: 500px;
+    height: 300px;
+  }
+  
+  .swiper {
+    height: 500px;
+  }
+  
+  .certificate-item h3 {
+    font-size: 1.5rem;
+  }
+  
+  .certificate-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .certificate-links a {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificate-preview {
+    max-width: 400px;
+    height: 250px;
+  }
+  
+  .swiper {
+    height: 450px;
+  }
+  
+  .certificate-item h3 {
+    font-size: 1.3rem;
+  }
+  
+  .pdf-icon {
+    font-size: 6rem;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Enhanced badge grid */
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Increased min size */
+  gap: 2.5rem; /* Increased gap */
+  margin-top: 4rem;
+}
+
+.badge-item {
+  background: linear-gradient(145deg, #111111, #0a0a0a);
+  border-radius: 20px; /* Increased border radius */
+  padding: 2rem; /* Increased padding */
+  text-align: center;
+  border: 2px solid #333;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 220px; /* Minimum height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge-item:hover {
+  transform: translateY(-15px) scale(1.05); /* Enhanced hover */
+  box-shadow: 0 20px 40px var(--hover-glow);
+  border-color: var(--primary-color);
+}
+
+.badge-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 111, 0, 0.2), transparent);
+  transition: left 0.7s ease;
+}
+
+.badge-item:hover::before {
+  left: 100%;
+}
+
+.badge-icon {
+  font-size: 4rem; /* Increased from 3rem */
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.badge-item:hover .badge-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.badge-item h4 {
+  color: var(--text-color);
+  font-size: 1.3rem; /* Increased */
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-item p {
+  color: var(--dim-text);
+  font-size: 1rem; /* Increased */
+  line-height: 1.5;
+}
+
+/* Update challenges section to match */
+.challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Increased min width */
+  gap: 2.5rem; /* Increased gap */
+  margin-top: 2rem;
+}
+
+.challenge-card {
+  background: linear-gradient(145deg, #111111, #0a0a0a);
+  border-radius: 20px; /* Increased */
+  padding: 2.5rem; /* Increased padding */
+  border: 2px solid #333;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 450px; /* Minimum height */
+}
+
+.challenge-card:hover {
+  transform: translateY(-10px) scale(1.02); /* Enhanced hover */
+  box-shadow: 0 20px 40px var(--hover-glow);
+}
+
+/* Navigation indicator for certificates */
+.certificates-container::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 3px;
+}
+
+    .challenge-card:hover::before {
+      left: 100%;
+    }
+
+    .challenge-type {
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      background: rgba(255, 111, 0, 0.1);
+      color: var(--primary-color);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(255, 111, 0, 0.3);
+    }
+
+    .challenge-type.ctf {
+      background: rgba(0, 255, 0, 0.1);
+      color: #00ff00;
+      border-color: rgba(0, 255, 0, 0.3);
+    }
+
+    .challenge-type.hackathon {
+      background: rgba(0, 150, 255, 0.1);
+      color: #0096ff;
+      border-color: rgba(0, 150, 255, 0.3);
+    }
+
+    .challenge-type.bug-bounty {
+      background: rgba(255, 50, 50, 0.1);
+      color: #ff3232;
+      border-color: rgba(255, 50, 50, 0.3);
+    }
+
+    .challenge-card h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .challenge-card p {
+      color: var(--dim-text);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .achievement-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    .achievement-list li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+      color: var(--dim-text);
+      transition: transform 0.3s ease;
+    }
+
+    .achievement-list li:hover {
+      transform: translateX(10px);
+      color: var(--text-color);
+    }
+
+    .achievement-list li i {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+    }
+
+    .challenge-stats {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #333;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--dim-text);
+    }
+
+    /* Update for new sections animation */
+    .challenge-card,
+    .badge-item,
+    .swiper-slide {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .challenge-card.visible,
+    .badge-item.visible,
+    .swiper-slide.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Continuous scrolling badge gallery */
+#badges {
+  padding: 80px 20px;
+  background-color: #0a0a0a;
+  overflow: hidden;
+}
+
+.badge-gallery-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 40px 0;
+  position: relative;
+}
+
+.badge-track {
+  display: flex;
+  gap: 40px;
+  animation: scrollBadges 30s linear infinite;
+  width: max-content;
+}
+
+.badge-slide {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--box-bg);
+  border: 2px solid #333;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.badge-slide:hover {
+  transform: scale(1.1);
+  border-color: var(--primary-color);
+  box-shadow: 0 15px 30px rgba(255, 111, 0, 0.3);
+}
+
+.badge-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+}
+
+.badge-img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+@keyframes scrollBadges {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation on hover */
+.badge-gallery-container:hover .badge-track {
+  animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .badge-slide {
+    width: 150px;
+    height: 150px;
+    gap: 20px;
+  }
+  
+  .badge-track {
+    gap: 20px;
+  }
+  
+  @keyframes scrollBadges {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
   </style>
 </head>
 <body>
@@ -1278,34 +1829,36 @@
       <li><a href="#about">About</a></li>
       <li><a href="#experiences">Experience</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#badges">Badges</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="menu-toggle">&#9776;</div>
   </header>
 
-<section id="hero">
-  <div class="particles" id="particles-container"></div>
-  <div class="hero-text fade-in">
-    <h1>Hi, I'm <span>Pradeep Kumar</span></h1>
-    <h3 class="typing"></h3>
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="particles" id="particles-container"></div>
+    <div class="hero-text fade-in">
+      <h1>Hi, I'm <span>Pradeep Kumar</span></h1>
+      <h3 class="typing"></h3>
 
-    <div class="button-container" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
-      <div class="resume-button">
-        <a href="Images/Pradeep_Resume.pdf" download>Download Resume</a>
-      </div>
-      <div class="resume-button">
-        <a href="Images/Cover_Letter.pdf" download>Cover Letter</a>
+      <div class="button-container" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+        <div class="resume-button">
+          <a href="Images/Pradeep_Resume.pdf" download>Download Resume</a>
+        </div>
+        <div class="resume-button">
+          <a href="Images/Cover_Letter.pdf" download>Cover Letter</a>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <div class="hero-image fade-in">
-    <img src="Images/profile.png" alt="Portrait" />
-  </div>
-</section>
+    
+    <div class="hero-image fade-in">
+      <img src="Images/profile.png" alt="Portrait" />
+    </div>
+  </section>
 
-
-  <!----about---->
+  <!-- About Section -->
   <section id="about">
     <div class="container">
       <div class="row">
@@ -1315,8 +1868,8 @@
         <div class="about-col-2">
           <h2 class="sub-title">About Me</h2>
           <p style="text-align: justify;">       
-I’m Pradeep Kumar U, a cybersecurity and DevOps professional with CEH v12 and Google Cybersecurity certifications, 
-            experienced in threat monitoring, vulnerability management, and SOC operations using tools like Splunk,Wazuh
+            I'm Pradeep Kumar U, a cybersecurity and DevOps professional with CEH v12 and Google Cybersecurity certifications, 
+            experienced in threat monitoring, vulnerability management, and SOC operations using tools like Splunk, Wazuh,
             Elastic, Snort, and Qualys VMDR. I have hands-on skills in incident response, log analysis, and risk mitigation,
             along with cloud and DevOps expertise in AWS, Azure, GCP, Docker, Kubernetes, Openstack, Jenkins and CI/CD.
             With a strong foundation in Python, Linux, networking, and security best practices aligned with NIST and ISO standards,
@@ -1327,8 +1880,7 @@ I’m Pradeep Kumar U, a cybersecurity and DevOps professional with CEH v12 and 
     </div>
   </section>
 
-
-  <!-- Education -->
+  <!-- Education Section -->
   <section id="edu">
     <div class="container fade-slide">
       <h2 class="sub-title">Education</h2>
@@ -1341,217 +1893,373 @@ I’m Pradeep Kumar U, a cybersecurity and DevOps professional with CEH v12 and 
     </div>
   </section>
 
-<!-- Experience -->
-<section id="experiences">
-  <div class="container fade-slide">
-    <h2 class="sub-title">Experience</h2>
-    <div class="experience-box">
-      <h3>Cybersecurity Intern – Shop Online New York</h3>
-      <p class="exp-date">Jan 2025 – Apr 2025</p>
-      <ul>
-        <li>Monitored network traffic and analyzed logs using SIEM tools like Splunk and ELK.</li>
-        <li>Conducted vulnerability scans with Qualys VMDR and recommended remediation actions.</li>
-        <li>Assisted in incident response and malware investigation for internal security alerts.</li>
-        <li>Collaborated on secure AWS configurations and implemented access control policies.</li>
-        <li>Prepared weekly reports summarizing threats, vulnerabilities, and mitigation efforts.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-
-<!-- Skills-->
-<section id="skills">
-  <div class="container fade-slide">
-    <h2 class="sub-title">Skills</h2>
-    <div class="experience-box">
-      <ul class="white-text">
-        <li><span class="orange-bold">SIEM & Security: </span>Wazuh, Splunk, Elastic, Snort, Wireshark, Qualys VMDR, OpenVAS, Snyk, IDS/IPS, Pfsense</li>
-        <li><span class="orange-bold">Cloud Platforms:</span> AWS, Azure, GCP, Docker, Kubernetes, Jenkins, Terraform, Ansible, CI/CD, Openstack</li>
-        <li><span class="orange-bold">Programming/Scripting:</span> Python, Java, HTML, Powershell, Bash, JavaScript,KQL</li>
-        <li><span class="orange-bold">Security Domains:</span> Threat Hunting, Red Teaming, Penetration Testing, Vulnerability Management</li>
-        <li><span class="orange-bold">Compliance & Best Practices: </span>NIST, ISO 27001 & 27002, GDPR, Azure & Google Cloud Security</li>
-        <li><span class="orange-bold">Tools:</span> Nmap, Metasploit, Wireshark, Burp Suite, Airmong</li>
-      </ul>   
-    </div>
-  </div>
-</section>
-
-<!-- Certifications-->
-<section id="skills">
-  <div class="container fade-slide">
-    <h2 class="sub-title">Certifications</h2>
-    <div class="experience-box">
-      <ul class="white-text">
-        <li><span class="orange-bold">Certified Ethical Hacker (CEH)</span></li>
-        <li><span class="orange-bold">Google Cybersecurity Certificate</span></li>
-        <li><span class="orange-bold">Introduction to Devops & SRE </span></li>
-        <li><span class="orange-bold">
-ISO/IEC 27001 Information Security Associate</span></li>
-        <li><span class="orange-bold">Offensive Penetration Testing</span></li>
-        <li><span class="orange-bold">Cisco Cybersecurity Essentials</span></li>
-        <li><span class="orange-bold">Qualys VMDR</span></li>
-        <li><span class="orange-bold">Google IT Certificate</span></li>
-      </ul>   
-    </div>
-  </div>
-</section>
-
-<!-- Portfolio -->
-<section id="portfolio">
-  <div class="container">
-    <h2 class="sub-title">My Work</h2>
-    
-    <div class="portfolio-tabs">
-      <button class="tab-btn active" data-tab="publications">Publications</button>
-      <button class="tab-btn" data-tab="github">GitHub Projects</button>
-      <button class="tab-btn" data-tab="projects">Projects</button>
-    </div>
-    
-    <!-- Publications Tab (First) -->
-    <div class="tab-content active" id="publications-tab">
-      <div class="publications-list">
-        <div class="publication">
-          <h3>Performance Analysis of Different Hardware Platforms in Wireless Sensor Networks</h3>
-          <p>This research paper presents a comprehensive performance analysis of various hardware platforms used in Wireless Sensor Networks (WSNs). The study evaluates energy efficiency, processing capabilities, and network longevity across different microcontroller and communication modules.</p>
-          <a href="https://ieeexplore.ieee.org/document/10125769" target="_blank">Read on IEEE Xplore →</a>
-        </div>
-        <div class="publication">
-          <h3>How I Built a Complete Wazuh SIEM Lab</h3>
-          <p>Designed and deployed a full Wazuh SIEM lab including server/agent setup, log collection, and actionable dashboards. Integrated alerting, threat detection modules, and system hardening to simulate a real-world SOC environment.</p>
-          <a href="https://medium.com/@pradeepkumaru.cyber/how-i-built-a-complete-wazuh-siem-lab-for-threat-detection-and-monitoring-f9cfe92aac9e" target="_blank">Read on Medium →</a>
-        </div>
-        <div class="publication">
-          <h3>Understanding File Integrity Monitoring (FIM) in Wazuh SIEM</h3>
-          <p>Developed expertise in Wazuh's File Integrity Monitoring to detect unauthorized file changes and potential intrusion attempts. Configured monitoring policies and alerts to ensure real-time security visibility across critical endpoints.</p>
-          <a href="https://medium.com/@pradeepkumaru.cyber/how-i-built-a-complete-wazuh-siem-lab-for-threat-detection-and-monitoring-f9cfe92aac9e" target="_blank">Read on Medium →</a>
-        </div>
+  <!-- Experience Section -->
+  <section id="experiences">
+    <div class="container fade-slide">
+      <h2 class="sub-title">Experience</h2>
+      <div class="experience-box">
+        <h3>Cybersecurity Intern – Shop Online New York</h3>
+        <p class="exp-date">Jan 2025 – Apr 2025</p>
+        <ul>
+          <li>Monitored network traffic and analyzed logs using SIEM tools like Splunk and ELK.</li>
+          <li>Conducted vulnerability scans with Qualys VMDR and recommended remediation actions.</li>
+          <li>Assisted in incident response and malware investigation for internal security alerts.</li>
+          <li>Collaborated on secure AWS configurations and implemented access control policies.</li>
+          <li>Prepared weekly reports summarizing threats, vulnerabilities, and mitigation efforts.</li>
+        </ul>
       </div>
     </div>
-    
-    <!-- GitHub Projects Tab (Second) -->
-    <div class="tab-content" id="github-tab">
-      <div class="github-projects-list">
-        <div class="github-project">
-          <h3><i class="fab fa-github"></i> Scripting</h3>
-          <p>Using Scripting i developed few networking tools like banner grabiing , port scanner etc..</p>
-          <div class="tech-stack">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Nmap</span>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container fade-slide">
+      <h2 class="sub-title">Skills</h2>
+      <div class="experience-box">
+        <ul class="white-text">
+          <li><span class="orange-bold">SIEM & Security: </span>Wazuh, Splunk, Elastic, Snort, Wireshark, Qualys VMDR, OpenVAS, Snyk, IDS/IPS, Pfsense</li>
+          <li><span class="orange-bold">Cloud Platforms:</span> AWS, Azure, GCP, Docker, Kubernetes, Jenkins, Terraform, Ansible, CI/CD, Openstack</li>
+          <li><span class="orange-bold">Programming/Scripting:</span> Python, Java, HTML, Powershell, Bash, JavaScript, KQL</li>
+          <li><span class="orange-bold">Security Domains:</span> Threat Hunting, Red Teaming, Penetration Testing, Vulnerability Management</li>
+          <li><span class="orange-bold">Compliance & Best Practices: </span>NIST, ISO 27001 & 27002, GDPR, Azure & Google Cloud Security</li>
+          <li><span class="orange-bold">Tools:</span> Nmap, Metasploit, Wireshark, Burp Suite, Airmong</li>
+        </ul>   
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <div class="container">
+      <h2 class="sub-title">My Work</h2>
+      
+      <div class="portfolio-tabs">
+        <button class="tab-btn active" data-tab="publications">Publications</button>
+        <button class="tab-btn" data-tab="github">GitHub Projects</button>
+        <button class="tab-btn" data-tab="projects">Projects</button>
+      </div>
+      
+      <!-- Publications Tab -->
+      <div class="tab-content active" id="publications-tab">
+        <div class="publications-list">
+          <div class="publication">
+            <h3>Performance Analysis of Different Hardware Platforms in Wireless Sensor Networks</h3>
+            <p>This research paper presents a comprehensive performance analysis of various hardware platforms used in Wireless Sensor Networks (WSNs). The study evaluates energy efficiency, processing capabilities, and network longevity across different microcontroller and communication modules.</p>
+            <a href="https://ieeexplore.ieee.org/document/10125769" target="_blank">Read on IEEE Xplore →</a>
           </div>
-          <div class="project-links">
-            <a href="https://github.com/Pradeepkumaru-cyber/Scripting" target="_blank">
-              <i class="fas fa-code"></i> View Code
-            </a>
+          <div class="publication">
+            <h3>How I Built a Complete Wazuh SIEM Lab</h3>
+            <p>Designed and deployed a full Wazuh SIEM lab including server/agent setup, log collection, and actionable dashboards. Integrated alerting, threat detection modules, and system hardening to simulate a real-world SOC environment.</p>
+            <a href="https://medium.com/@pradeepkumaru.cyber/how-i-built-a-complete-wazuh-siem-lab-for-threat-detection-and-monitoring-f9cfe92aac9e" target="_blank">Read on Medium →</a>
           </div>
-        </div>
-        
-        <div class="github-project">
-          <h3><i class="fab fa-github"></i> Ultimate-Hash-Cracker</h3>
-          <p>Ethical security tool for fast hash recovery and verification supporting MD5, SHA-1, SHA-256 algorithms with dictionary and brute-force attack modes.</p>
-          <div class="tech-stack">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Cryptography</span>
-            <span class="tech-tag">Security</span>
-            <span class="tech-tag">CLI Tool</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Pradeepkumaru-cyber/Ultimate-Hash-Cracker" target="_blank">
-              <i class="fas fa-code"></i> View Code
-            </a>
-          </div>
-        </div>
-        
-        
-        
-        <div class="github-project">
-          <h3><i class="fab fa-github"></i>Containerizing a Python Application </h3>
-          <p>A containerized Python calculator app that runs inside Docker, ensuring consistent performance across any system without dependency issues.</p>
-          <div class="tech-stack">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Flask</span>
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">ubuntu</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Pradeepkumaru-cyber/Reverse-Web-Shell-Generator" target="_blank">
-              <i class="fas fa-code"></i> View Code
-            </a>
+          <div class="publication">
+            <h3>Understanding File Integrity Monitoring (FIM) in Wazuh SIEM</h3>
+            <p>Developed expertise in Wazuh's File Integrity Monitoring to detect unauthorized file changes and potential intrusion attempts. Configured monitoring policies and alerts to ensure real-time security visibility across critical endpoints.</p>
+            <a href="https://medium.com/@pradeepkumaru.cyber/how-i-built-a-complete-wazuh-siem-lab-for-threat-detection-and-monitoring-f9cfe92aac9e" target="_blank">Read on Medium →</a>
           </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Projects Tab (Last) -->
-    <div class="tab-content" id="projects-tab">
-      <div class="work-list">
-        <div class="work">
-          <img src="Images/2.jpg" alt="StealthESP Injector">
-          <div class="layer">
-            <h3>StealthESP Injector</h3>
-            <p>The StealthESP Injector is a compact hardware device built using the ESP-12S Wi-Fi module and ATmega32U4 microcontroller to perform HID (Human Interface Device) injection attacks for ethical hacking purposes.</p>
+      
+      <!-- GitHub Projects Tab -->
+      <div class="tab-content" id="github-tab">
+        <div class="github-projects-list">
+          <div class="github-project">
+            <h3><i class="fab fa-github"></i> Scripting</h3>
+            <p>Using Scripting I developed few networking tools like banner grabbing, port scanner etc.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Nmap</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Pradeepkumaru-cyber/Scripting" target="_blank">
+                <i class="fas fa-code"></i> View Code
+              </a>
+            </div>
           </div>
-        </div>
-        
-        <div class="work">
-          <img src="Images/4.jpg" alt="Ultimate Hash Cracker">
-          <div class="layer">
-            <h3>Ultimate Hash Cracker</h3>
-            <p>This project focuses on building an ethical security tool for fast and reliable hash recovery and verification. It supports commonly used hash algorithms such as MD5, SHA-1, and SHA-256.</p>
+          
+          <div class="github-project">
+            <h3><i class="fab fa-github"></i> Ultimate-Hash-Cracker</h3>
+            <p>Ethical security tool for fast hash recovery and verification supporting MD5, SHA-1, SHA-256 algorithms with dictionary and brute-force attack modes.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Cryptography</span>
+              <span class="tech-tag">Security</span>
+              <span class="tech-tag">CLI Tool</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Pradeepkumaru-cyber/Ultimate-Hash-Cracker" target="_blank">
+                <i class="fas fa-code"></i> View Code
+              </a>
+            </div>
           </div>
+          
+         
+          
+          <div class="github-project">
+            <h3><i class="fab fa-github"></i> Containerizing a Python Application</h3>
+            <p>A containerized Python calculator app that runs inside Docker, ensuring consistent performance across any system without dependency issues.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Ubuntu</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Pradeepkumaru-cyber/Reverse-Web-Shell-Generator" target="_blank">
+                <i class="fas fa-code"></i> View Code
+              </a>
+            </div>
+          </div>
+          
+   
+          
+          
         </div>
-        <div class="work">
-          <img src="Images/w.png" alt="AWS VPC Setup">
+      </div>
+      
+      <!-- Projects Tab -->
+      <div class="tab-content" id="projects-tab">
+        <div class="work-list">
+          <div class="work">
+            <img src="Images/2.jpg">
+            <div class="layer">
+              <h3>StealthESP Injector</h3>
+              <p>The StealthESP Injector is a compact hardware device built using the ESP-12S Wi-Fi module and ATmega32U4 microcontroller to perform HID (Human Interface Device) injection attacks for ethical hacking purposes.</p>
+            </div>
+          </div>
+          
+          <div class="work">
+            <img src="Images/4.jpg" >
+            <div class="layer">
+              <h3>Ultimate Hash Cracker</h3>
+              <p>This project focuses on building an ethical security tool for fast and reliable hash recovery and verification. It supports commonly used hash algorithms such as MD5, SHA-1, and SHA-256.</p>
+            </div>
+          </div>
+          
+          <div class="work">
+            <img src="Images/2.jpg" >
+            <div class="layer">
+              <h3>pfSense Firewall Lab</h3>
+              <p>Built and configured a pfSense firewall to manage network security, traffic filtering, and VPN access. Implemented NAT, IDS/IPS, and custom rules to protect and segment network environments.</p>
+            </div>
+          </div>
+               <div class="work">
+          <img src="Images/2.jpg" alt="AWS VPC Setup">
           <div class="layer">
             <h3>Wazuh SIEM Lab</h3>
             <p>Implemented a Wazuh SIEM environment to monitor system logs, detect security threats, and track file integrity in real time. Configured agents, alerting rules, and dashboards for incident analysis and threat response.</p>
           </div>
         </div>
-        <div class="work">
-          <img src="Images/p.png" alt="Network Security Analyzer">
-          <div class="layer">
-            <h3>pfSense Firewall Lab</h3>
-            <p>Built and configured a pfSense firewall to manage network security, traffic filtering, and VPN access. Implemented NAT, IDS/IPS, and custom rules to protect and segment network environments.</p>
-          </div>
+          
         </div>
-
-        
       </div>
     </div>
+  </section>
+<!-- Certifications Section -->
+  <section id="skills">
+    <div class="container fade-slide">
+      <h2 class="sub-title">Certifications</h2>
+      <div class="experience-box">
+        <ul class="white-text">
+          <li><span class="orange-bold">Certified Ethical Hacker (CEH)</span></li>
+          <li><span class="orange-bold">Google Cybersecurity Certificate</span></li>
+          <li><span class="orange-bold">Introduction to Devops & SRE</span></li>
+          <li><span class="orange-bold">ISO/IEC 27001 Information Security Associate</span></li>
+          <li><span class="orange-bold">Offensive Penetration Testing</span></li>
+          <li><span class="orange-bold">Cisco Cybersecurity Essentials</span></li>
+          <li><span class="orange-bold">Qualys VMDR</span></li>
+          <li><span class="orange-bold">Google IT Certificate</span></li>
+        </ul>   
+      </div>
+    </div>
+  </section>
+  <!-- NEW: Certificates & Badges Section -->
+  <section id="certificates">
+    <div class="container">
+      <h2 class="sub-title">Certificates </h2>
+      
+      <!-- Certificates Slideshow -->
+      <div class="certificates-container">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="certificate-item">
+                <div class="certificate-preview">
+                  <img src="Images\ECC-CEH-Certificate-page-001.jpg" >
+                </div>       
+              </div>
+            </div>
+
+            
+            <div class="swiper-slide">
+              <div class="certificate-item">
+                <div class="certificate-preview">
+                  <img src="Images\1695234217971.jpg" >
+                </div>       
+              </div>
+            </div>
+
+            
+            <div class="swiper-slide">
+              <div class="certificate-item">
+                <div class="certificate-preview">
+                  <img src="Images\Coursera_KAW3DLWUUN3K-page-001.jpg" >
+                </div>       
+              </div>
+            </div>
+
+            
+            <div class="swiper-slide">
+              <div class="certificate-item">
+                <div class="certificate-preview">
+                  <img src="Images\Coursera_G5TTI66KPPHO-page-001.jpg" >
+                </div>       
+              </div>
+            </div>
+
+            
+            <div class="swiper-slide">
+              <div class="certificate-item">
+                <div class="certificate-preview">
+                  <img src="Images\certmaster-learn-completion-certificate-page-001.jpg" >
+                </div>       
+              </div>
+            </div>
+                      
+            <div class="swiper-slide">
+              <div class="certificate-item">
+                <div class="certificate-preview">
+                  <img src="Images\Introduction to Network Analysis-course-page-001.jpg" >
+                </div>       
+              </div>
+            </div>   
+
+            <div class="swiper-slide">
+              <div class="certificate-item">
+                <div class="certificate-preview">
+                  <img src="Images\pradeep-kumar-d507acad-4ed3-49af-b4e7-7c45c160e637-certificate-page-001.jpg" >
+                </div>       
+              </div>
+            </div>
+
+              <div class="swiper-slide">
+              <div class="certificate-item">
+                <div class="certificate-preview">
+                  <img src="Images\24e4247b-ee5e-4eb0-ac72-54fe9aee521c-page-001.jpg" >
+                </div>       
+              </div>
+            </div>
+              <div class="swiper-slide">
+              <div class="certificate-item">
+                <div class="certificate-preview">
+                  <img src="Images\THM-T1SDFUFWE4-page-001.jpg" >
+                </div>       
+              </div>
+            </div>
+               <div class="swiper-slide">
+              <div class="certificate-item">
+                <div class="certificate-preview">
+                  <img src="Images\THM-2R69KT1RUQ-page-001.jpg" >
+                </div>       
+              </div>
+            </div>
+               <div class="swiper-slide">
+              <div class="certificate-item">
+                <div class="certificate-preview">
+                  <img src="Images\THM-ADAYWYULBD-page-001.jpg" >
+                </div>       
+              </div>
+            </div>
+                    
+        
+            
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+           
+      </div>
+    </div>
+  </section>
+<!--badges-->
+
+<!-- Replace your badges section with this -->
+<section id="badges">
+  <div class="container">
+    <h2 class="sub-title">Badges & Achievements</h2>
+    
+    <!-- Continuous scrolling badge gallery -->
+    <div class="badge-gallery-container">
+      <div class="badge-track">
+        <!-- All badges duplicated for continuous scroll -->
+        <div class="badge-slide"><img src="Images\badges\12.png"  class="badge-img"></div>
+        <div class="badge-slide"><img src="Images\badges\1.png"  class="badge-img"></div>
+        <div class="badge-slide"><img src="Images\badges\3.png" class="badge-img"></div>
+        <div class="badge-slide"><img src="Images/badges/4.png" class="badge-img"></div>
+        <div class="badge-slide"><img src="Images/badges/5.png"  class="badge-img"></div>
+        <div class="badge-slide"><img src="Images/badges/6.png"  class="badge-img"></div>
+        <div class="badge-slide"><img src="Images/badges/7.png"  class="badge-img"></div>
+        <div class="badge-slide"><img src="Images/badges/8.png"  class="badge-img"></div>
+        <div class="badge-slide"><img src="Images/badges/10.png"  class="badge-img"></div>
+        <div class="badge-slide"><img src="Images/badges/9.png"  class="badge-img"></div>
+        
+        <!-- Duplicate set for continuous scroll -->
+       <div class="badge-slide"><img src="Images\badges\12.png"  class="badge-img"></div>
+        <div class="badge-slide"><img src="Images\badges\1.png"  class="badge-img"></div>
+        <div class="badge-slide"><img src="Images\badges\3.png" class="badge-img"></div>
+        <div class="badge-slide"><img src="Images/badges/4.png" class="badge-img"></div>
+        <div class="badge-slide"><img src="Images/badges/5.png"  class="badge-img"></div>
+        <div class="badge-slide"><img src="Images/badges/6.png"  class="badge-img"></div>
+        <div class="badge-slide"><img src="Images/badges/7.png"  class="badge-img"></div>
+        <div class="badge-slide"><img src="Images/badges/8.png"  class="badge-img"></div>
+        <div class="badge-slide"><img src="Images/badges/10.png"  class="badge-img"></div>
+        <div class="badge-slide"><img src="Images/badges/9.png"  class="badge-img"></div>
+      </div>
     </div>
   </div>
 </section>
 
-<button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">
-  ⮝
-</button>
+  <!-- Scroll to Top Button -->
+  <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">
+    ⮝
+  </button>
 
-<!-- Contact Details -->
-<section id="contact">
-  <div class="container">
-    <div class="row">
-      <div class="contact-left">
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="contact-left">
           <h2 class="sub-title">Contact Me</h2>
-         <a href="mailto:pradeepkumaru.cyber@gmail.com" > <p><i class="fas fa-envelope"></i>pradeepkumaru.cyber@gmail.com</p></a>
+          <a href="mailto:pradeepkumaru.cyber@gmail.com">
+            <p><i class="fas fa-envelope"></i>pradeepkumaru.cyber@gmail.com</p>
+          </a>
           <p><i class="fas fa-phone"></i>+91 90258 58843</p>
           <p><i class="fas fa-map-marker-alt text-[#FF8000] mr-2"></i>Tiruchirappalli, Tamilnadu, India - 620 008</p>
-         <div class="social-icons">
-        <a href="https://www.linkedin.com/in/pradeep-kumar-u-32b669224/"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/Pradeepkumaru-cyber/portfolio"><i class="fab fa-github-square"></i></a>
-        <a href="https://medium.com/@pradeepkumaru.cyber"><i class="fab fa-medium"></i></a>
-      </div>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/pradeep-kumar-u-32b669224/"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Pradeepkumaru-cyber/portfolio"><i class="fab fa-github-square"></i></a>
+            <a href="https://medium.com/@pradeepkumaru.cyber"><i class="fab fa-medium"></i></a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <p>© 2025 Pradeep Kumar. All rights reserved.</p>
-  </div>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Pradeep Kumar. All rights reserved.</p>
+    </div>
+  </footer>
 
+  <!-- Add Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
   <script>
     // Mobile menu toggle
     document.addEventListener("DOMContentLoaded", () => {
@@ -1624,7 +2332,6 @@ ISO/IEC 27001 Information Security Associate</span></li>
         portfolioObserver.observe(item);
       });
     });
-    const faders = document.querySelectorAll('.fade-in, .fade-slide');
 
     // Portfolio tab functionality
     const tabBtns = document.querySelectorAll('.tab-btn');
@@ -1717,9 +2424,63 @@ ISO/IEC 27001 Information Security Associate</span></li>
         }
       });
     });
-  </script>
- 
-  <script>
+
+    // Initialize Swiper
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+    });
+
+    // Update Intersection Observer for new sections
+    const newSections = document.querySelectorAll('.challenge-card, .badge-item, .swiper-slide');
+    const newSectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    newSections.forEach(section => {
+      newSectionObserver.observe(section);
+    });
+
+    // Update navigation highlighting for all sections
+    const allSections = document.querySelectorAll('section');
+    const allNavLinks = document.querySelectorAll('.nav-links a');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      allSections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      allNavLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
     // Toggle scroll button visibility
     window.onscroll = function () {
       const btn = document.getElementById("scrollTopBtn");
@@ -1731,17 +2492,5 @@ ISO/IEC 27001 Information Security Associate</span></li>
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
