@@ -263,40 +263,90 @@
     #hero,
     #experience,
     #education,
-    #skills,
-    #certifications {
-      padding: 2rem 1rem !important;
-    }
-    .hero,
-    .education-box,
-    .experience-box,
-    .skills-box,
-    .certifications-box {
-      margin-bottom: 1rem;
-    }
-    section h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1.5rem;
-      color: var(--primary-color);
-      position: relative;
-      display: inline-block;
-    }
 
-    section h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 50%;
-      height: 3px;
-      background-color: var(--primary-color);
-      animation: expandWidth 1.5s ease forwards;
-    }
+#skills {
+  padding: 30px 0 60px;
+}
 
-    section p, li {
-      font-size: 1rem;
-      color: var(--dim-text);
-    }
+#skills .sub-title {
+  margin-bottom: 30px;
+}
+
+/* Main skills container */
+#skills .experience-box {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px 36px;
+  border: 1px solid rgba(255, 107, 0, 0.18);
+  border-radius: 20px;
+  background: linear-gradient(135deg, #111111, #21160f);
+  box-shadow: 0 4px 18px rgba(255, 107, 0, 0.08);
+}
+
+/* Remove default list spacing */
+#skills .white-text {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Each skill category */
+#skills .white-text li {
+  display: grid;
+  grid-template-columns: 265px minmax(0, 1fr);
+  align-items: start;
+  column-gap: 18px;
+  padding: 12px 0;
+  margin: 0;
+  color: #d2d2d2;
+  font-size: 16px;
+  line-height: 1.8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Remove the final divider */
+#skills .white-text li:last-child {
+  border-bottom: none;
+}
+
+/* Orange category labels */
+#skills .orange-bold {
+  color: #ff7900;
+  font-weight: 700;
+}
+
+/* Tablet layout */
+@media (max-width: 992px) {
+  #skills .white-text li {
+    grid-template-columns: 220px minmax(0, 1fr);
+    column-gap: 12px;
+    font-size: 15px;
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  #skills {
+    padding: 20px 0 40px;
+  }
+
+  #skills .experience-box {
+    padding: 18px 20px;
+    border-radius: 14px;
+  }
+
+  #skills .white-text li {
+    display: block;
+    padding: 14px 0;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  #skills .orange-bold {
+    display: block;
+    margin-bottom: 3px;
+  }
+}
 
     /*------about------*/
     #about {
